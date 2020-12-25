@@ -1,3 +1,4 @@
+include ':avatar_list'
 include ':repository_list'
 include ':emoji_list'
 include ':home'

@@ -3,4 +3,5 @@
     <string name="title_home">Home</string>
     <string name="title_emoji_list">Emoji List</string>
     <string name="title_repository_list">Repository List</string>
+    <string name="title_avatar_list">Avatar List</string>
 </resources>
