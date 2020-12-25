@@ -2,16 +2,15 @@ import com.daniel.buildSrc.Dependencies
 import com.daniel.buildSrc.Versions
 
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
 }
-
 android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
 
     defaultConfig {
-        applicationId "com.daniel.randomemojisavatars"
+        applicationId "com.daniel.home"
         minSdkVersion Versions.min_sdk
         targetSdkVersion Versions.target_sdk
         versionCode Versions.version_code
@@ -30,13 +29,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = Versions.jvm_target_version
-    }
-    dynamicFeatures = [':home']
 }
 
 dependencies {
+    implementation project(":app")
     implementation Dependencies.Core.kotlin_stdlib_jdk8
     implementation Dependencies.Core.core_ktx
     implementation Dependencies.Core.appcompat
