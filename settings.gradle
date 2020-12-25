@@ -1,3 +1,4 @@
+include ':emoji_list'
 include ':home'
 include ':app'
 rootProject.name = "RandomEmojisAvatars"

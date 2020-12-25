@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RandomEmojisAvatars</string>
     <string name="title_home">Home</string>
+    <string name="title_emoji_list">Emoji List</string>
 </resources>
