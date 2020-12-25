@@ -15,7 +15,6 @@ object Dependencies {
             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" + Versions.kotlin
     }
 
-
     object Tool {
         const val gradle: String = "com.android.tools.build:gradle:" + Versions.gradle
 
