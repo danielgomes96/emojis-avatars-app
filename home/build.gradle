@@ -33,4 +33,6 @@ android {
 
 dependencies {
     implementation project(":app")
+    testImplementation Dependencies.Test.junit
+    androidTestImplementation Dependencies.Test.espresso
 }
