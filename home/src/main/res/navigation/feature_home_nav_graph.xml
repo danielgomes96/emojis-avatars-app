@@ -10,12 +10,24 @@
         app:moduleName="home">
         <action
             android:id="@+id/action_homeFragment_to_featureEmojiListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
             app:destination="@id/featureEmojiListNavGraph" />
         <action
             android:id="@+id/action_homeFragment_to_featureAvatarListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
             app:destination="@id/featureAvatarListNavGraph" />
         <action
             android:id="@+id/action_homeFragment_to_featureRepositoryListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
             app:destination="@id/featureRepositoryListNavGraph" />
     </fragment>
 
