@@ -2,7 +2,7 @@ import com.daniel.buildSrc.Dependencies
 import com.daniel.buildSrc.Versions
 
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -11,13 +11,13 @@ android {
     buildToolsVersion Versions.build_tools
 
     defaultConfig {
-        applicationId "com.daniel.randomemojisavatars"
         minSdkVersion Versions.min_sdk
         targetSdkVersion Versions.target_sdk
         versionCode Versions.version_code
         versionName Versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -33,13 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = Versions.jvm_target_version
     }
-    dynamicFeatures = [':home', ':emoji_list', ':repository_list', ':avatar_list']
 }
 
 dependencies {
-    api project(':core')
-    api project(':data')
-    api project(':domain')
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

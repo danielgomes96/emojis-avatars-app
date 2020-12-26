@@ -1,17 +1,20 @@
+import com.daniel.buildSrc.Dependencies
+import com.daniel.buildSrc.Versions
+
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdkVersion Versions.compile_sdk
+    buildToolsVersion Versions.build_tools
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Versions.version_code
+        versionName Versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -28,13 +31,17 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = Versions.jvm_target_version
     }
 }
 
 dependencies {
-    def nav_version = '2.3.2'
-    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    api "androidx.navigation:navigation-ui-ktx:$nav_version"
-    api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    api Dependencies.Core.kotlin_stdlib_jdk8
+    api Dependencies.Core.core_ktx
+    api Dependencies.Core.appcompat
+    api Dependencies.Core.navigation_dynamic_features
+    api Dependencies.Core.navigation_fragment
+    api Dependencies.Core.navigation_ui
+    api Dependencies.UI.material
+    api Dependencies.UI.constraint_layout
 }
