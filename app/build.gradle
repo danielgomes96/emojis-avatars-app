@@ -37,11 +37,13 @@ android {
 }
 
 dependencies {
-    implementation Dependencies.Core.kotlin_stdlib_jdk8
-    implementation Dependencies.Core.core_ktx
-    implementation Dependencies.Core.appcompat
-    implementation Dependencies.UI.material
-    implementation Dependencies.UI.constraint_layout
+    api project(':core')
+    api Dependencies.Core.kotlin_stdlib_jdk8
+    api Dependencies.Core.core_ktx
+    api Dependencies.Core.appcompat
+    api Dependencies.UI.material
+    api Dependencies.UI.constraint_layout
+
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

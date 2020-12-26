@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/emojiListFragment">
+    <fragment
+        android:id="@+id/emojiListFragment"
+        android:name="com.daniel.emoji_list.EmojiListFragment"
+        android:label="EmojiListFragment"
+        app:moduleName="emoji_list"/>
+</navigation>
