@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation project(':core')
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }
