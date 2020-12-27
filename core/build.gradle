@@ -10,6 +10,10 @@ android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         minSdkVersion Versions.min_sdk
         targetSdkVersion Versions.target_sdk
@@ -36,6 +40,10 @@ android {
 }
 
 dependencies {
+    implementation Dependencies.Core.lifecycle_common_java8
+    implementation Dependencies.Core.lifecycle_runtime
+    implementation Dependencies.Core.lifecycle_viewmodel
+    implementation Dependencies.Core.lifecycle_livedata
     api Dependencies.Core.kotlin_stdlib_jdk8
     api Dependencies.Core.core_ktx
     api Dependencies.Core.appcompat

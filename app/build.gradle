@@ -10,6 +10,8 @@ android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
 
+
+
     defaultConfig {
         applicationId "com.daniel.randomemojisavatars"
         minSdkVersion Versions.min_sdk

@@ -28,4 +28,5 @@ object Versions {
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val navigation = "2.3.2"
+    const val lifecycle = "2.2.0"
 }
