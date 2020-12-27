@@ -36,6 +36,17 @@ object Dependencies {
                 "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
     }
 
+    object DI {
+        /**
+         * https://github.com/InsertKoinIO/koin
+         */
+        const val koin: String = "org.koin:koin-android:" + Versions.koin
+
+        const val koin_core: String = "org.koin:koin-core:" + Versions.koin
+
+        const val koin_view_model: String = "org.koin:koin-androidx-viewmodel:" + Versions.koin
+    }
+
     object Tool {
         const val gradle: String = "com.android.tools.build:gradle:" + Versions.gradle
 

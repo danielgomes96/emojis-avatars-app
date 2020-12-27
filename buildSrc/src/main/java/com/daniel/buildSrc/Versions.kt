@@ -22,6 +22,7 @@ object Versions {
     const val constraint_layout = "2.0.4"
     const val core_ktx = "1.2.0"
     const val gradle = "4.1.0"
+    const val koin = "2.2.0-rc-4"
     const val kotlin = "1.3.72"
     const val ktlint = "0.36.0"
     const val material = "1.2.1"

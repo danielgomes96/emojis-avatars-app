@@ -50,6 +50,11 @@ dependencies {
     api Dependencies.Core.navigation_dynamic_features
     api Dependencies.Core.navigation_fragment
     api Dependencies.Core.navigation_ui
+
+    api Dependencies.DI.koin
+    api Dependencies.DI.koin_core
+    api Dependencies.DI.koin_view_model
+
     api Dependencies.UI.material
     api Dependencies.UI.constraint_layout
 }
