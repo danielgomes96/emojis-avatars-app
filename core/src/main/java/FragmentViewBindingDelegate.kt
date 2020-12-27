@@ -42,4 +42,3 @@ class FragmentViewBindingDelegate<T : ViewBinding>(
         return viewBindingFactory(thisRef.requireView()).also { this.binding = it }
     }
 }
-

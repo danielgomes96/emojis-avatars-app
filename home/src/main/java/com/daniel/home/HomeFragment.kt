@@ -18,10 +18,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupView() = with(homeBinding) {
         fragmentHomeBtnGetEmoji.setOnClickListener {
-            //TODO: Request Get Emojis from Github API
+            // TODO: Request Get Emojis from Github API
         }
         fragmentHomeBtnSearch.setOnClickListener {
-            //TODO: Request username from Github API
+            // TODO: Request username from Github API
         }
         fragmentHomeBtnEmojiList.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_featureEmojiListNavGraph)
