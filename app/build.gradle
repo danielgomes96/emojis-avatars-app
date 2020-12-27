@@ -33,14 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = Versions.jvm_target_version
     }
+    dynamicFeatures = [':home', ':emoji_list', ':repository_list', ':avatar_list']
 }
 
 dependencies {
-    implementation Dependencies.Core.kotlin_stdlib_jdk8
-    implementation Dependencies.Core.core_ktx
-    implementation Dependencies.Core.appcompat
-    implementation Dependencies.UI.material
-    implementation Dependencies.UI.constraint_layout
+    api project(':core')
+    api project(':data')
+    api project(':domain')
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

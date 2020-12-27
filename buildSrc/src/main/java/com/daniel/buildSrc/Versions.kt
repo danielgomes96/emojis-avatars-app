@@ -27,4 +27,5 @@ object Versions {
     const val material = "1.2.1"
     const val junit = "4.12"
     const val espresso = "3.3.0"
+    const val navigation = "2.3.2"
 }

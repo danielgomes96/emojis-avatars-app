@@ -1,0 +1,38 @@
+import com.daniel.buildSrc.Dependencies
+import com.daniel.buildSrc.Versions
+
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+}
+android {
+    compileSdkVersion Versions.compile_sdk
+    buildToolsVersion Versions.build_tools
+
+    defaultConfig {
+        applicationId "com.daniel.home"
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Versions.version_code
+        versionName Versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(":app")
+    testImplementation Dependencies.Test.junit
+    androidTestImplementation Dependencies.Test.espresso
+}

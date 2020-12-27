@@ -1,2 +1,9 @@
+include ':core'
+include ':domain'
+include ':data'
 include ':app'
+include ':home'
+include ':avatar_list'
+include ':repository_list'
+include ':emoji_list'
 rootProject.name = "RandomEmojisAvatars"

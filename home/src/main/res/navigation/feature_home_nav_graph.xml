@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.daniel.home.HomeFragment"
+        android:label="HomeFragment"
+        app:moduleName="home">
+        <action
+            android:id="@+id/action_homeFragment_to_featureEmojiListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
+            app:destination="@id/featureEmojiListNavGraph" />
+        <action
+            android:id="@+id/action_homeFragment_to_featureAvatarListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
+            app:destination="@id/featureAvatarListNavGraph" />
+        <action
+            android:id="@+id/action_homeFragment_to_featureRepositoryListNavGraph"
+            app:enterAnim="@anim/fragment_enter"
+            app:exitAnim="@anim/fragment_exit"
+            app:popEnterAnim="@anim/fragment_pop_enter"
+            app:popExitAnim="@anim/fragment_pop_exit"
+            app:destination="@id/featureRepositoryListNavGraph" />
+    </fragment>
+
+    <include-dynamic
+        android:id="@+id/featureRepositoryListNavGraph"
+        app:graphResName="feature_repository_list_nav_graph"
+        app:moduleName="repository_list"/>
+
+    <include-dynamic
+        android:id="@+id/featureAvatarListNavGraph"
+        app:graphResName="feature_avatar_list_nav_graph"
+        app:moduleName="avatar_list"/>
+
+    <include-dynamic
+        android:id="@+id/featureEmojiListNavGraph"
+        app:graphResName="feature_emoji_list_nav_graph"
+        app:moduleName="emoji_list"/>
+</navigation>

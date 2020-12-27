@@ -13,6 +13,15 @@ object Dependencies {
 
         const val kotlin_stdlib_jdk8: String =
             "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" + Versions.kotlin
+
+        const val navigation_fragment: String =
+            "androidx.navigation:navigation-fragment-ktx:" + Versions.navigation
+
+        const val navigation_ui: String =
+            "androidx.navigation:navigation-ui-ktx:" + Versions.navigation
+
+        const val navigation_dynamic_features: String =
+            "androidx.navigation:navigation-dynamic-features-fragment:" + Versions.navigation
     }
 
     object Tool {
