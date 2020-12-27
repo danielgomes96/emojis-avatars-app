@@ -22,6 +22,18 @@ object Dependencies {
 
         const val navigation_dynamic_features: String =
             "androidx.navigation:navigation-dynamic-features-fragment:" + Versions.navigation
+
+        const val lifecycle_common_java8: String =
+                "androidx.lifecycle:lifecycle-common-java8:" + Versions.lifecycle
+
+        const val lifecycle_runtime: String =
+                "androidx.lifecycle:lifecycle-runtime-ktx:" + Versions.lifecycle
+
+        const val lifecycle_viewmodel: String =
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.lifecycle
+
+        const val lifecycle_livedata: String =
+                "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
     }
 
     object Tool {
