@@ -24,6 +24,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SERVER_URL", "\"https://api.github.com/\""
+        }
+        debug {
+            buildConfigField "String", "SERVER_URL", "\"https://api.github.com/\""
         }
     }
     compileOptions {
@@ -37,6 +41,11 @@ android {
 
 dependencies {
     implementation project(':core')
+    implementation project(':domain')
+    implementation Dependencies.Data.retrofit
+    implementation Dependencies.Data.converter_gson
+    implementation Dependencies.Data.okhttp
+    implementation Dependencies.Data.logging_interceptor
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

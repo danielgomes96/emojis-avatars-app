@@ -34,6 +34,21 @@ object Dependencies {
 
         const val lifecycle_livedata: String =
                 "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
+
+        const val kotlin_coroutines: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.kotlin_coroutines
+    }
+
+    object Data {
+        const val retrofit: String = "com.squareup.retrofit2:retrofit:" + Versions.retrofit
+
+        const val converter_gson: String = "com.squareup.retrofit2:converter-gson:" +
+                Versions.converter_gson
+
+        const val okhttp: String = "com.squareup.okhttp3:okhttp:" + Versions.okhttp
+
+        const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
+                Versions.okhttp
     }
 
     object DI {

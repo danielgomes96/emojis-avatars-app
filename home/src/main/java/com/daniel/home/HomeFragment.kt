@@ -1,10 +1,14 @@
 package com.daniel.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.daniel.home.databinding.FragmentHomeBinding
+import androidx.lifecycle.Observer
+import com.daniel.data.di.networkModule
+import com.daniel.data.di.repositoryModule
 import com.daniel.home.di.homeModule
+import com.daniel.home.databinding.FragmentHomeBinding
 import extension.findNavController
 import extension.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,12 +23,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        loadKoinModules(homeModule)
+        loadKoinModules(listOf(homeModule, repositoryModule, networkModule))
+        viewModel.emojiListLv.observe(viewLifecycleOwner, Observer {
+            Log.e("EmojiList:", it.toString())
+        })
     }
 
     private fun setupView() = with(homeBinding) {
         fragmentHomeBtnGetEmoji.setOnClickListener {
-            // TODO: Request Get Emojis from Github API
+            viewModel.getEmojiList()
         }
         fragmentHomeBtnSearch.setOnClickListener {
             // TODO: Request username from Github API
@@ -42,6 +49,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        unloadKoinModules(homeModule)
+        unloadKoinModules(listOf(homeModule, networkModule))
     }
 }
