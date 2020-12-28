@@ -23,5 +23,4 @@ class EmojiLocalMapper : BaseMapper<List<EmojiLocal>, List<Emoji>>() {
             randomEmoji.name, randomEmoji.imageUrl
         )
     }
-
 }

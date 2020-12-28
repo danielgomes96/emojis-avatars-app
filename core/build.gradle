@@ -51,8 +51,8 @@ dependencies {
     api Dependencies.Core.navigation_fragment
     api Dependencies.Core.navigation_ui
 
-    api 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    api Dependencies.UI.glide
+    annotationProcessor  Dependencies.UI.glide_compiler
 
     api Dependencies.DI.koin
     api Dependencies.DI.koin_core

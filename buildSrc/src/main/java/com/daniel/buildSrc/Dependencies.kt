@@ -80,6 +80,11 @@ object Dependencies {
                 Versions.constraint_layout
 
         const val material: String = "com.google.android.material:material:" + Versions.material
+
+        const val glide: String =
+            "com.github.bumptech.glide:glide:" + Versions.glide
+
+        const val glide_compiler: String = "com.github.bumptech.glide:compiler:" + Versions.glide
     }
 
     object Test {

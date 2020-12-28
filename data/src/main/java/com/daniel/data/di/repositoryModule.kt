@@ -1,7 +1,6 @@
 package com.daniel.data.di
 
 import com.daniel.data.repository.EmojiRepositoryImpl
-import com.daniel.data.service.GithubService
 import com.daniel.domain.repository.EmojiRepository
 import org.koin.dsl.module
 

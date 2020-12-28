@@ -10,7 +10,12 @@ import com.daniel.data.di.repositoryModule
 import com.daniel.domain.entity.ViewState
 import com.daniel.home.di.homeModule
 import com.daniel.home.databinding.FragmentHomeBinding
-import extension.*
+import extension.renderUrl
+import extension.showToast
+import extension.viewBinding
+import extension.visible
+import extension.gone
+import extension.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
