@@ -15,7 +15,7 @@ class HomeViewModel(
 ) : BaseViewModel() {
 
     private val _emojiListLiveData: MutableLiveData<ViewState<List<Emoji>>> = MutableLiveData()
-    val emojiListLiveData : LiveData<ViewState<List<Emoji>>>
+    val emojiListLiveData: LiveData<ViewState<List<Emoji>>>
         get() = _emojiListLiveData
 
     fun getEmojiList() = launch {

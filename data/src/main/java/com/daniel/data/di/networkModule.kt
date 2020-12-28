@@ -1,18 +1,15 @@
 package com.daniel.data.di
 
 import com.daniel.data.BuildConfig.SERVER_URL
-import com.daniel.data.dto.EmojiDTO
 import com.daniel.data.dto.EmojiDTOList
 import com.daniel.data.service.EmojiDataParser
 import com.daniel.data.service.GithubService
 import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
