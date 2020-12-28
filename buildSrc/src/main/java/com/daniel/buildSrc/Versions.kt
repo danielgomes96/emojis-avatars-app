@@ -30,6 +30,7 @@ object Versions {
     const val material = "1.2.1"
     const val okhttp: String = "3.14.2"
     const val retrofit: String = "2.9.0"
+    const val room: String = "2.2.5"
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val navigation = "2.3.2"

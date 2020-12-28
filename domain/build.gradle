@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation Dependencies.Core.kotlin_stdlib_jdk8
-    implementation Dependencies.Core.kotlin_coroutines
+    implementation Dependencies.Core.kotlin_coroutines_core
+    implementation Dependencies.Core.kotlin_coroutines_android
     testImplementation Dependencies.Test.junit
 }

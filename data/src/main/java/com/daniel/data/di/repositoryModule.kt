@@ -8,7 +8,8 @@ import org.koin.dsl.module
 val repositoryModule = module {
     factory {
         EmojiRepositoryImpl(
-            get<GithubService>()
+            get(),
+            get()
         ) as EmojiRepository
     }
 }

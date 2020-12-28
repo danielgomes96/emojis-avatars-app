@@ -35,7 +35,10 @@ object Dependencies {
         const val lifecycle_livedata: String =
                 "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
 
-        const val kotlin_coroutines: String =
+        const val kotlin_coroutines_core: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:" + Versions.kotlin_coroutines
+
+        const val kotlin_coroutines_android: String =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.kotlin_coroutines
     }
 
@@ -49,6 +52,8 @@ object Dependencies {
 
         const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
                 Versions.okhttp
+
+        const val room = "androidx.room:room-runtime:" + Versions.room
     }
 
     object DI {

@@ -10,7 +10,7 @@ abstract class BaseMapper<IN, OUT> {
     /**
      * Maps a list of [entities].
      */
-    fun transform(entities: List<IN>?): List<OUT> {
+    fun transformList(entities: List<IN>?): List<OUT> {
         return entities?.map(::transform) ?: emptyList()
     }
 }
