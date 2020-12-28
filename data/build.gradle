@@ -4,6 +4,7 @@ import com.daniel.buildSrc.Versions
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -46,6 +47,8 @@ dependencies {
     implementation Dependencies.Data.converter_gson
     implementation Dependencies.Data.okhttp
     implementation Dependencies.Data.logging_interceptor
+    implementation Dependencies.Data.room
+    kapt "android.arch.persistence.room:compiler:1.1.1"
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

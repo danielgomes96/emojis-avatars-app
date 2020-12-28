@@ -26,9 +26,9 @@ dependencies {
     ktlint Dependencies.Tool.ktlint
 }
 
-task ktlint(type: JavaExec, group: "verification") {
+task ktlint(type: JavaExec, group: "formatting") {
     description = "Check Kotlin code style."
     main = "com.pinterest.ktlint.Main"
     classpath = configurations.ktlint
-    args "**/*.kt", "!**/bin/**/*.kt", "!**/*InstrumentedTest.kt", "--reporter=plain?group_by_file&color", "no-wildcard-imports = false"
+    args "-F", "**/*.kt", "!**/bin/**/*.kt", "!**/*InstrumentedTest.kt", "--reporter=plain?group_by_file&color", "no-wildcard-imports = false"
 }

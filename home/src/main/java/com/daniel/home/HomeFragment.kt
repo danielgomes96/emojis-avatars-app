@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.daniel.data.di.databaseModule
 import com.daniel.data.di.networkModule
 import com.daniel.data.di.repositoryModule
 import com.daniel.domain.entity.ViewState
 import com.daniel.home.di.homeModule
 import com.daniel.home.databinding.FragmentHomeBinding
-import extension.gone
+import extension.renderUrl
 import extension.showToast
 import extension.viewBinding
 import extension.visible
+import extension.gone
 import extension.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -26,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        loadKoinModules(listOf(homeModule, repositoryModule, networkModule))
+        loadKoinModules(listOf(databaseModule, homeModule, repositoryModule, networkModule))
         setupObservers()
     }
 
@@ -37,12 +39,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 is ViewState.Success -> {
                     dismissLoading()
                     updateGetEmojiButtonText()
+                    viewModel.saveEmojiList(viewState.data)
                 }
                 is ViewState.Error -> {
                     dismissLoading()
                     showErrorMessage()
                 }
             }
+        })
+
+        viewModel.randomEmojiLiveData.observe(viewLifecycleOwner, Observer {
+            homeBinding.fragmentHomeImEmoji.renderUrl(it.imageUrl)
         })
     }
 
@@ -63,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun updateGetEmojiButtonText() {
         homeBinding.fragmentHomeBtnGetEmoji.text = getString(R.string.button_random_emoji)
         homeBinding.fragmentHomeBtnGetEmoji.setOnClickListener {
-            // TODO: Get a random emoji from local database
+            viewModel.getRandomEmoji()
         }
     }
 

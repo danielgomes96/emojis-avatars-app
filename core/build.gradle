@@ -51,6 +51,9 @@ dependencies {
     api Dependencies.Core.navigation_fragment
     api Dependencies.Core.navigation_ui
 
+    api Dependencies.UI.glide
+    annotationProcessor  Dependencies.UI.glide_compiler
+
     api Dependencies.DI.koin
     api Dependencies.DI.koin_core
     api Dependencies.DI.koin_view_model

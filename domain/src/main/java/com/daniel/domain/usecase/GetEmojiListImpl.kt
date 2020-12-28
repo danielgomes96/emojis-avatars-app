@@ -4,8 +4,8 @@ import com.daniel.domain.entity.Emoji
 import com.daniel.domain.repository.EmojiRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetEmojiListUseCaseImpl(
+class GetEmojiListImpl(
     private val emojiRepository: EmojiRepository
-) : GetEmojiListUseCase {
+) : GetEmojiList {
     override suspend fun execute(): Flow<List<Emoji>> = emojiRepository.getEmojiList()
 }
