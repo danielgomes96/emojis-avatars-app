@@ -18,6 +18,15 @@
         app:layout_constraintBottom_toTopOf="@id/fragment_home_btn_get_emoji"
         tools:src="@drawable/abc_vector_test" />
 
+    <ProgressBar
+        android:id="@+id/fragment_home_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/fragment_home_btn_emoji_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fragment_home_btn_get_emoji"
         android:layout_width="wrap_content"
