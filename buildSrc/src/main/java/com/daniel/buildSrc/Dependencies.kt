@@ -34,6 +34,32 @@ object Dependencies {
 
         const val lifecycle_livedata: String =
                 "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.lifecycle
+
+        const val kotlin_coroutines: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.kotlin_coroutines
+    }
+
+    object Data {
+        const val retrofit: String = "com.squareup.retrofit2:retrofit:" + Versions.retrofit
+
+        const val converter_gson: String = "com.squareup.retrofit2:converter-gson:" +
+                Versions.converter_gson
+
+        const val okhttp: String = "com.squareup.okhttp3:okhttp:" + Versions.okhttp
+
+        const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
+                Versions.okhttp
+    }
+
+    object DI {
+        /**
+         * https://github.com/InsertKoinIO/koin
+         */
+        const val koin: String = "org.koin:koin-android:" + Versions.koin
+
+        const val koin_core: String = "org.koin:koin-core:" + Versions.koin
+
+        const val koin_view_model: String = "org.koin:koin-androidx-viewmodel:" + Versions.koin
     }
 
     object Tool {
