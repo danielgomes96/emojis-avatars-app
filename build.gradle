@@ -12,6 +12,7 @@ buildscript {
     dependencies {
         classpath Dependencies.Tool.gradle
         classpath Dependencies.Tool.gradle_kotlin_plugin
+        classpath Dependencies.Tool.navigation_gradle_plugin
     }
 }
 

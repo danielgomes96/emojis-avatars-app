@@ -1,4 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="emoji_name_removed_message">The %s emoji was successfully removed.</string>
+    <string name="emoji_list_swipe_to_refresh">The emoji list successfully restored.</string>
 </resources>

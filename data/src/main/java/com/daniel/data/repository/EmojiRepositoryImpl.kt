@@ -6,6 +6,7 @@ import com.daniel.data.mapper.EmojiRemoteMapper
 import com.daniel.data.service.GithubService
 import com.daniel.domain.entity.Emoji
 import com.daniel.domain.repository.EmojiRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class EmojiRepositoryImpl(
@@ -30,4 +31,10 @@ class EmojiRepositoryImpl(
     }
 
     override fun getRandomEmoji(): Emoji = EmojiLocalMapper().fromLocal(emojisDao.getRandomEmoji())
+
+    override suspend fun hasCache(): Flow<List<Emoji>> = flow {
+        emit(
+            EmojiLocalMapper().transform(emojisDao.getEmojiList())
+        )
+    }
 }

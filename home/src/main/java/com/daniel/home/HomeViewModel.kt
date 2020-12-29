@@ -7,6 +7,7 @@ import com.daniel.domain.entity.Emoji
 import com.daniel.domain.entity.ViewState
 import com.daniel.domain.usecase.GetEmojiList
 import com.daniel.domain.usecase.GetRandomEmoji
+import com.daniel.domain.usecase.HasCache
 import com.daniel.domain.usecase.SaveEmojiList
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -15,8 +16,13 @@ import kotlinx.coroutines.launch
 class HomeViewModel(
     private val getEmojiList: GetEmojiList,
     private val saveEmojiList: SaveEmojiList,
+    private val hasCache: HasCache,
     private val getRandomEmoji: GetRandomEmoji
 ) : BaseViewModel() {
+
+    private val _hasCacheLiveData: MutableLiveData<List<Emoji>> = MutableLiveData()
+    val hasCacheLiveData: LiveData<List<Emoji>>
+        get() = _hasCacheLiveData
 
     private val _emojiListLiveData: MutableLiveData<ViewState<List<Emoji>>> = MutableLiveData()
     val emojiListLiveData: LiveData<ViewState<List<Emoji>>>
@@ -25,6 +31,18 @@ class HomeViewModel(
     private val _randomEmojiLiveData: MutableLiveData<Emoji> = MutableLiveData()
     val randomEmojiLiveData: LiveData<Emoji>
         get() = _randomEmojiLiveData
+
+    init {
+        launch {
+            hasCache.execute()
+                .catch {
+                    // TODO: Handle error
+                }
+                .collect { emojiList ->
+                    if (emojiList.isNotEmpty()) _hasCacheLiveData.postValue(emojiList)
+                }
+        }
+    }
 
     fun getEmojiList() = launch {
         _emojiListLiveData.postValue(ViewState.Loading())

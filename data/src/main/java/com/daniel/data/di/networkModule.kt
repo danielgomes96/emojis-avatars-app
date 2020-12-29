@@ -21,7 +21,7 @@ val networkModule = module {
 
     single {
         createGithubService(
-            get<OkHttpClient>()
+            get()
         )
     }
 
@@ -46,7 +46,7 @@ private fun createGithubService(okHttpClient: OkHttpClient): Retrofit = Retrofit
 private fun createOkHttpClient(): OkHttpClient {
     val timeoutInSeconds = 10L
     val httpLoggingInterceptor = HttpLoggingInterceptor()
-    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
         .connectTimeout(timeoutInSeconds, TimeUnit.SECONDS)
         .readTimeout(timeoutInSeconds, TimeUnit.SECONDS)
