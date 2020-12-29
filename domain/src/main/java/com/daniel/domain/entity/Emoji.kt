@@ -1,3 +1,5 @@
 package com.daniel.domain.entity
 
-data class Emoji(val name: String, val imageUrl: String)
+import java.io.Serializable
+
+data class Emoji(val name: String, val imageUrl: String) : Serializable

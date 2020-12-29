@@ -4,7 +4,9 @@ import com.daniel.buildSrc.Versions
 plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
 }
+
 android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
@@ -32,6 +34,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Versions.jvm_target_version
     }
 }
 

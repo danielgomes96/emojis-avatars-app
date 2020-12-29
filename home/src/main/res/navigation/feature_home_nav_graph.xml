@@ -14,7 +14,8 @@
             app:exitAnim="@anim/fragment_exit"
             app:popEnterAnim="@anim/fragment_pop_enter"
             app:popExitAnim="@anim/fragment_pop_exit"
-            app:destination="@id/featureEmojiListNavGraph" />
+            app:destination="@id/featureEmojiListNavGraph">
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_featureAvatarListNavGraph"
             app:enterAnim="@anim/fragment_enter"
@@ -44,5 +45,9 @@
     <include-dynamic
         android:id="@+id/featureEmojiListNavGraph"
         app:graphResName="feature_emoji_list_nav_graph"
-        app:moduleName="emoji_list"/>
+        app:moduleName="emoji_list">
+        <argument
+            android:name="emojiProperties"
+            app:argType="com.daniel.domain.entity.EmojiList" />
+    </include-dynamic>
 </navigation>

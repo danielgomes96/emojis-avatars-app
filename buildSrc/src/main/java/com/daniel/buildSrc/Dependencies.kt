@@ -73,6 +73,9 @@ object Dependencies {
         const val gradle_kotlin_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" + Versions.kotlin
 
         const val ktlint: String = "com.pinterest:ktlint:" + Versions.ktlint
+
+        const val navigation_gradle_plugin =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:" + Versions.navigation
     }
 
     object UI {
@@ -85,6 +88,9 @@ object Dependencies {
             "com.github.bumptech.glide:glide:" + Versions.glide
 
         const val glide_compiler: String = "com.github.bumptech.glide:compiler:" + Versions.glide
+
+        const val swipe_to_refresh: String =
+            "androidx.swiperefreshlayout:swiperefreshlayout:" + Versions.swipe_to_refresh
     }
 
     object Test {

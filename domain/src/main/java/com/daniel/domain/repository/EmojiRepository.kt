@@ -7,4 +7,5 @@ interface EmojiRepository {
     suspend fun getEmojiList(): Flow<List<Emoji>>
     fun saveEmojiList(emojiList: List<Emoji>)
     fun getRandomEmoji(): Emoji
+    suspend fun hasCache(): Flow<List<Emoji>>
 }

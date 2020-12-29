@@ -7,6 +7,8 @@ import androidx.lifecycle.Observer
 import com.daniel.data.di.databaseModule
 import com.daniel.data.di.networkModule
 import com.daniel.data.di.repositoryModule
+import com.daniel.domain.entity.Emoji
+import com.daniel.domain.entity.EmojiList
 import com.daniel.domain.entity.ViewState
 import com.daniel.home.di.homeModule
 import com.daniel.home.databinding.FragmentHomeBinding
@@ -40,6 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     dismissLoading()
                     updateGetEmojiButtonText()
                     viewModel.saveEmojiList(viewState.data)
+                    setupEmojiListButton(viewState.data)
                 }
                 is ViewState.Error -> {
                     dismissLoading()
@@ -51,6 +54,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.randomEmojiLiveData.observe(viewLifecycleOwner, Observer {
             homeBinding.fragmentHomeImEmoji.renderUrl(it.imageUrl)
         })
+
+        viewModel.hasCacheLiveData.observe(viewLifecycleOwner, Observer { emojiList ->
+            setupEmojiListButton(emojiList)
+        })
+    }
+
+    private fun setupEmojiListButton(data: List<Emoji>) {
+        homeBinding.fragmentHomeBtnEmojiList.setOnClickListener {
+            val directions = HomeFragmentDirections.actionHomeFragmentToFeatureEmojiListNavGraph(
+                    EmojiList(data)
+            )
+            findNavController().navigate(directions)
+        }
     }
 
     private fun showErrorMessage() {
@@ -81,9 +97,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         fragmentHomeBtnSearch.setOnClickListener {
             // TODO: Request username from Github API
         }
-        fragmentHomeBtnEmojiList.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_featureEmojiListNavGraph)
-        }
+
         fragmentHomeBtnGoogleRepos.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_featureRepositoryListNavGraph)
         }

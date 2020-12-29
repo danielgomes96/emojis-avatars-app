@@ -30,6 +30,7 @@ object Versions {
     const val ktlint = "0.36.0"
     const val material = "1.2.1"
     const val okhttp: String = "3.14.2"
+    const val swipe_to_refresh: String = "1.1.0"
     const val retrofit: String = "2.9.0"
     const val room: String = "2.2.5"
     const val junit = "4.12"

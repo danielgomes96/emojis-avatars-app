@@ -2,6 +2,7 @@ import com.daniel.buildSrc.Dependencies
 
 plugins {
     id 'kotlin'
+    id 'org.jetbrains.kotlin.android.extensions'
 }
 
 dependencies {

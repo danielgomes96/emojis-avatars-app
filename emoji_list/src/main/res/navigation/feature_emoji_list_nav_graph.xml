@@ -6,5 +6,11 @@
         android:id="@+id/emojiListFragment"
         android:name="com.daniel.emoji_list.EmojiListFragment"
         android:label="EmojiListFragment"
-        app:moduleName="emoji_list"/>
+        app:moduleName="emoji_list">
+
+        <argument
+            android:name="emojiProperties"
+            app:argType="com.daniel.domain.entity.EmojiList" />
+
+    </fragment>
 </navigation>
