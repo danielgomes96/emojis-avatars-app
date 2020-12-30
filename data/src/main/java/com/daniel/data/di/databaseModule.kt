@@ -10,6 +10,10 @@ val databaseModule = module {
     }
 
     single {
+        get<AppDatabase>().usersDao()
+    }
+
+    single {
         Room.databaseBuilder(
             get(),
             AppDatabase::class.java,

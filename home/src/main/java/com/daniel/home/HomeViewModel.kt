@@ -4,11 +4,14 @@ import androidx.lifecycle.LiveData
 import base.BaseViewModel
 import androidx.lifecycle.MutableLiveData
 import com.daniel.domain.entity.Emoji
+import com.daniel.domain.entity.User
 import com.daniel.domain.entity.ViewState
 import com.daniel.domain.usecase.GetEmojiList
 import com.daniel.domain.usecase.GetRandomEmoji
 import com.daniel.domain.usecase.HasCache
 import com.daniel.domain.usecase.SaveEmojiList
+import com.daniel.domain.usecase.GetUserDetails
+import com.daniel.domain.usecase.SaveUserAvatar
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +19,8 @@ import kotlinx.coroutines.launch
 class HomeViewModel(
     private val getEmojiList: GetEmojiList,
     private val saveEmojiList: SaveEmojiList,
+    private val getUserDetails: GetUserDetails,
+    private val saveUserAvatar: SaveUserAvatar,
     private val hasCache: HasCache,
     private val getRandomEmoji: GetRandomEmoji
 ) : BaseViewModel() {
@@ -31,6 +36,10 @@ class HomeViewModel(
     private val _randomEmojiLiveData: MutableLiveData<Emoji> = MutableLiveData()
     val randomEmojiLiveData: LiveData<Emoji>
         get() = _randomEmojiLiveData
+
+    private val _userAvatarLiveData: MutableLiveData<ViewState<User>> = MutableLiveData()
+    val userAvatarLiveData: LiveData<ViewState<User>>
+        get() = _userAvatarLiveData
 
     init {
         launch {
@@ -61,5 +70,19 @@ class HomeViewModel(
 
     fun getRandomEmoji() = launch {
         _randomEmojiLiveData.postValue(getRandomEmoji.execute())
+    }
+
+    fun searchUser(userName: String) = launch {
+        _userAvatarLiveData.postValue(ViewState.Loading())
+        if (userName.isNotEmpty()) {
+            getUserDetails.execute(userName)
+                .catch {
+                    _userAvatarLiveData.postValue(ViewState.Error())
+                }
+                .collect { userDetails ->
+                    _userAvatarLiveData.postValue(ViewState.Success(userDetails))
+                    saveUserAvatar.execute(userDetails)
+                }
+        }
     }
 }

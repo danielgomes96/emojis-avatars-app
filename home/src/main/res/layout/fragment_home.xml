@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,8 +11,8 @@
 
     <ImageView
         android:id="@+id/fragment_home_im_emoji"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,17 +47,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/fragment_home_et_username"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_text_insert_github_username"
-        android:textColor="@color/design_default_color_secondary"
         android:layout_marginTop="32dp"
+        android:hint="@string/edit_text_insert_github_username"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="1"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:textColor="@color/design_default_color_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_home_btn_emoji_list"
-        tools:text="danielgomes96"/>
+        tools:text="danielgomes96"
+        tools:ignore="Autofill" />
+
+    <ProgressBar
+        android:id="@+id/fragment_home_progress_bar_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_home_et_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_home_et_username"
+        app:layout_constraintTop_toTopOf="@id/fragment_home_et_username" />
 
     <ImageButton
         android:id="@+id/fragment_home_btn_search"
@@ -64,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:src="@drawable/ic_search"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@id/fragment_home_et_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/fragment_home_et_username"
@@ -71,7 +89,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fragment_home_btn_avatar_list"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_avatar_list"
         app:layout_constraintEnd_toEndOf="@id/fragment_home_et_username"
@@ -80,7 +98,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fragment_home_btn_google_repos"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_google_repos"
         app:layout_constraintEnd_toEndOf="@id/fragment_home_et_username"

@@ -5,9 +5,14 @@ plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
 }
+
 android {
     compileSdkVersion Versions.compile_sdk
     buildToolsVersion Versions.build_tools
+
+    buildFeatures {
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId "com.daniel.avatar_list"
