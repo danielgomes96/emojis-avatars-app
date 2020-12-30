@@ -35,29 +35,49 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setupObservers() {
-        viewModel.emojiListLiveData.observe(viewLifecycleOwner, Observer { viewState ->
-            when (viewState) {
-                is ViewState.Loading -> { showLoading() }
-                is ViewState.Success -> {
-                    dismissLoading()
-                    updateGetEmojiButtonText()
-                    viewModel.saveEmojiList(viewState.data)
-                    setupEmojiListButton(viewState.data)
+        viewModel.apply {
+            emojiListLiveData.observe(viewLifecycleOwner, Observer { viewState ->
+                when (viewState) {
+                    is ViewState.Loading -> { showLoading() }
+                    is ViewState.Success -> {
+                        dismissLoading()
+                        updateGetEmojiButtonText()
+                        viewModel.saveEmojiList(viewState.data)
+                        setupEmojiListButton(viewState.data)
+                    }
+                    is ViewState.Error -> {
+                        dismissLoading()
+                        showErrorMessage()
+                    }
                 }
-                is ViewState.Error -> {
-                    dismissLoading()
-                    showErrorMessage()
+            })
+
+            randomEmojiLiveData.observe(viewLifecycleOwner, Observer {
+                homeBinding.fragmentHomeImEmoji.renderUrl(it.imageUrl)
+            })
+
+            hasCacheLiveData.observe(viewLifecycleOwner, Observer { emojiList ->
+                setupEmojiListButton(emojiList)
+            })
+
+            userAvatarLiveData.observe(viewLifecycleOwner, Observer { viewState ->
+                when (viewState) {
+                    is ViewState.Loading -> {
+                        homeBinding.fragmentHomeBtnSearch.gone()
+                        homeBinding.fragmentHomeProgressBarSearch.visible()
+                    }
+                    is ViewState.Success -> {
+                        homeBinding.fragmentHomeProgressBarSearch.gone()
+                        homeBinding.fragmentHomeBtnSearch.visible()
+                        homeBinding.fragmentHomeImEmoji.renderUrl(viewState.data.imageUrl)
+                    }
+                    is ViewState.Error -> {
+                        homeBinding.fragmentHomeProgressBarSearch.gone()
+                        homeBinding.fragmentHomeBtnSearch.visible()
+                    }
                 }
-            }
-        })
-
-        viewModel.randomEmojiLiveData.observe(viewLifecycleOwner, Observer {
-            homeBinding.fragmentHomeImEmoji.renderUrl(it.imageUrl)
-        })
-
-        viewModel.hasCacheLiveData.observe(viewLifecycleOwner, Observer { emojiList ->
-            setupEmojiListButton(emojiList)
-        })
+            })
+        }
     }
 
     private fun setupEmojiListButton(data: List<Emoji>) {
@@ -95,7 +115,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             viewModel.getEmojiList()
         }
         fragmentHomeBtnSearch.setOnClickListener {
-            // TODO: Request username from Github API
+            viewModel.searchUser(fragmentHomeEtUsername.text.toString())
         }
 
         fragmentHomeBtnGoogleRepos.setOnClickListener {
