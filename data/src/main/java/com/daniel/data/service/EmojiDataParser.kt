@@ -15,7 +15,6 @@ class EmojiDataParser : JsonDeserializer<EmojiDTOList> {
         typeOfT: Type?,
         context: JsonDeserializationContext?
     ): EmojiDTOList {
-
         val emojiList = mutableListOf<EmojiDTO>()
 
         Gson().fromJson(json, Map::class.java).forEach { map ->

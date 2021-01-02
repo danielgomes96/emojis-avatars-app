@@ -54,6 +54,10 @@ object Dependencies {
                 Versions.okhttp
 
         const val room = "androidx.room:room-runtime:" + Versions.room
+
+        const val room_ktx = "androidx.room:room-ktx:" + Versions.room
+
+        const val room_compiler = "androidx.room:room-compiler:" + Versions.room
     }
 
     object DI {

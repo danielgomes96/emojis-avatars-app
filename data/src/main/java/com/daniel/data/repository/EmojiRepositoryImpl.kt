@@ -1,8 +1,8 @@
 package com.daniel.data.repository
 
-import com.daniel.data.database.EmojisDao
-import com.daniel.data.mapper.EmojiLocalMapper
-import com.daniel.data.mapper.EmojiRemoteMapper
+import com.daniel.data.database.dao.EmojisDao
+import com.daniel.data.mapper.local.EmojiLocalMapper
+import com.daniel.data.mapper.remote.EmojiRemoteMapper
 import com.daniel.data.service.GithubService
 import com.daniel.domain.entity.Emoji
 import com.daniel.domain.repository.EmojiRepository
@@ -30,7 +30,8 @@ class EmojiRepositoryImpl(
         )
     }
 
-    override fun getRandomEmoji(): Emoji = EmojiLocalMapper().fromLocal(emojisDao.getRandomEmoji())
+    override fun getRandomEmoji(): Emoji = EmojiLocalMapper()
+        .fromLocal(emojisDao.getRandomEmoji())
 
     override suspend fun hasCache(): Flow<List<Emoji>> = flow {
         emit(
