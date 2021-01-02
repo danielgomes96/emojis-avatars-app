@@ -1,12 +1,14 @@
-package com.daniel.data.mapper
+package com.daniel.data.mapper.local
 
 import base.BaseMapper
-import com.daniel.data.database.EmojiLocal
+import com.daniel.data.database.entity.EmojiLocal
 import com.daniel.domain.entity.Emoji
 
 class EmojiLocalMapper : BaseMapper<List<EmojiLocal>, List<Emoji>>() {
 
-    override fun transform(entity: List<EmojiLocal>): List<Emoji> {
+    override fun transform(
+        entity: List<EmojiLocal>
+    ): List<Emoji> {
         return entity.map {
             Emoji(it.name, it.imageUrl)
         }

@@ -48,7 +48,8 @@ dependencies {
     implementation Dependencies.Data.okhttp
     implementation Dependencies.Data.logging_interceptor
     implementation Dependencies.Data.room
-    kapt "android.arch.persistence.room:compiler:1.1.1"
+    implementation Dependencies.Data.room_ktx
+    kapt Dependencies.Data.room_compiler
     testImplementation Dependencies.Test.junit
     androidTestImplementation Dependencies.Test.espresso
 }

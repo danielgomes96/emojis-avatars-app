@@ -1,8 +1,8 @@
 package com.daniel.data.repository
 
-import com.daniel.data.database.UsersDao
-import com.daniel.data.mapper.UserLocalMapper
-import com.daniel.data.mapper.UserRemoteMapper
+import com.daniel.data.database.dao.UsersDao
+import com.daniel.data.mapper.local.UserLocalMapper
+import com.daniel.data.mapper.remote.UserRemoteMapper
 import com.daniel.data.service.GithubService
 import com.daniel.domain.entity.User
 import com.daniel.domain.repository.UserRepository
@@ -32,7 +32,8 @@ class UserRepositoryImpl(
 
     override suspend fun removeUserAvatar(user: User) = flow {
         emit(
-                usersDao.removeUser(UserLocalMapper().transform(user).id)
+            usersDao.removeUser(
+                UserLocalMapper().transform(user).id)
         )
     }
 }

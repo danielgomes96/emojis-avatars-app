@@ -32,7 +32,7 @@ object Versions {
     const val okhttp: String = "3.14.2"
     const val swipe_to_refresh: String = "1.1.0"
     const val retrofit: String = "2.9.0"
-    const val room: String = "2.2.5"
+    const val room: String = "2.3.0-alpha01"
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val navigation = "2.3.2"

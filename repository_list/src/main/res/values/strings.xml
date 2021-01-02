@@ -1,4 +1,3 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_repositories_response">An error has occurred while trying to get repositories.</string>
 </resources>
