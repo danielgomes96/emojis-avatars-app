@@ -44,9 +44,6 @@ class HomeViewModel(
     init {
         launch {
             hasCache.execute()
-                .catch {
-                    // TODO: Handle error
-                }
                 .collect { emojiList ->
                     if (emojiList.isNotEmpty()) _hasCacheLiveData.postValue(emojiList)
                 }
