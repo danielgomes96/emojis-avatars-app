@@ -6,5 +6,7 @@ import com.daniel.domain.repository.UserRepository
 class SaveUserAvatarImpl(
     private val userRepository: UserRepository
 ) : SaveUserAvatar {
-    override suspend fun execute(user: User) = userRepository.saveUserAvatar(user)
+    override suspend fun execute(user: User) {
+        userRepository.saveUserAvatar(user)
+    }
 }

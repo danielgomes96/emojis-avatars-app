@@ -29,6 +29,8 @@ object Versions {
     const val kotlin_coroutines = "1.3.9"
     const val ktlint = "0.36.0"
     const val material = "1.2.1"
+    const val mockk = "1.9.3"
+    const val mockwebserver: String = "4.3.1"
     const val okhttp: String = "3.14.2"
     const val swipe_to_refresh: String = "1.1.0"
     const val retrofit: String = "2.9.0"

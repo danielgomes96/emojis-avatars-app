@@ -100,6 +100,11 @@ object Dependencies {
     object Test {
         const val junit: String = "junit:junit:" + Versions.junit
 
+        const val mockk: String = "io.mockk:mockk:" + Versions.mockk
+
+        const val mockwebserver: String =
+                "com.squareup.okhttp3:mockwebserver:" + Versions.mockwebserver
+
         const val espresso: String = "androidx.test.espresso:espresso-core:" + Versions.espresso
     }
 }
