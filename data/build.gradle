@@ -50,6 +50,6 @@ dependencies {
     implementation Dependencies.Data.room
     implementation Dependencies.Data.room_ktx
     kapt Dependencies.Data.room_compiler
+    testImplementation Dependencies.Test.mockk
     testImplementation Dependencies.Test.junit
-    androidTestImplementation Dependencies.Test.espresso
 }

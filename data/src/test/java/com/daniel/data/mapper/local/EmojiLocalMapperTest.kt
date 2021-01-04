@@ -1,10 +1,6 @@
 package com.daniel.data.mapper.local
 
 import com.daniel.data.database.entity.EmojiLocal
-import com.daniel.data.dto.EmojiDTO
-import com.daniel.data.dto.EmojiDTOList
-import com.daniel.data.mapper.remote.EmojiRemoteMapper
-import com.daniel.data.mapper.remote.EmojiRemoteMapperTest
 import com.daniel.domain.entity.Emoji
 import junit.framework.TestCase
 import org.junit.Test
