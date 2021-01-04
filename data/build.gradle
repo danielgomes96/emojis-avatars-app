@@ -1,0 +1,55 @@
+import com.daniel.buildSrc.Dependencies
+import com.daniel.buildSrc.Versions
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion Versions.compile_sdk
+    buildToolsVersion Versions.build_tools
+
+    defaultConfig {
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Versions.version_code
+        versionName Versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SERVER_URL", "\"https://api.github.com/\""
+        }
+        debug {
+            buildConfigField "String", "SERVER_URL", "\"https://api.github.com/\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Versions.jvm_target_version
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':domain')
+    implementation Dependencies.Data.retrofit
+    implementation Dependencies.Data.converter_gson
+    implementation Dependencies.Data.okhttp
+    implementation Dependencies.Data.logging_interceptor
+    implementation Dependencies.Data.room
+    implementation Dependencies.Data.room_ktx
+    kapt Dependencies.Data.room_compiler
+    testImplementation Dependencies.Test.mockk
+    testImplementation Dependencies.Test.junit
+}

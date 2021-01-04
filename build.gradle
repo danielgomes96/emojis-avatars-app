@@ -1,16 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import com.daniel.buildSrc.Dependencies
+
 buildscript {
-    ext.kotlin_version = "1.3.72"
     repositories {
         google()
         jcenter()
     }
+    configurations {
+        ktlint
+    }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath Dependencies.Tool.gradle
+        classpath Dependencies.Tool.gradle_kotlin_plugin
+        classpath Dependencies.Tool.navigation_gradle_plugin
     }
 }
 
@@ -21,6 +23,13 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+dependencies {
+    ktlint Dependencies.Tool.ktlint
+}
+
+task ktlint(type: JavaExec, group: "formatting") {
+    description = "Check Kotlin code style."
+    main = "com.pinterest.ktlint.Main"
+    classpath = configurations.ktlint
+    args "-F", "**/*.kt", "!**/bin/**/*.kt", "!**/*InstrumentedTest.kt", "--reporter=plain?group_by_file&color", "no-wildcard-imports = false"
 }

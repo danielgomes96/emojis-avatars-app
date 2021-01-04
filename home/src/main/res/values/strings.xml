@@ -1,0 +1,10 @@
+<resources>
+    <!-- Home Screen Fragment string resources -->
+    <string name="button_get_emoji">Get Emoji</string>
+    <string name="button_random_emoji">Random Emoji</string>
+    <string name="button_emoji_list">Emoji List</string>
+    <string name="button_avatar_list">Avatar List</string>
+    <string name="button_google_repos">Google Repos</string>
+    <string name="edit_text_insert_github_username">Insert github username</string>
+    <string name="error_message_get_emoji">An error occurred while trying to get emojis list.</string>
+</resources>
