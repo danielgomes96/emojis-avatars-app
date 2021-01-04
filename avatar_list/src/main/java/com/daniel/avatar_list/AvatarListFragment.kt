@@ -36,6 +36,10 @@ class AvatarListFragment : Fragment(R.layout.fragment_avatar_list) {
         super.onViewCreated(view, savedInstanceState)
         loadKoinModules(avatarListModule)
         setupObservers()
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         fragmentAvatarListBinding.avatarListRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager =
@@ -48,13 +52,13 @@ class AvatarListFragment : Fragment(R.layout.fragment_avatar_list) {
     }
 
     private fun setupObservers() {
-        viewModel.usersAvatarListLiveData.observe(viewLifecycleOwner, Observer {
-            when (it) {
+        viewModel.usersAvatarListLiveData.observe(viewLifecycleOwner, Observer { viewState ->
+            when (viewState) {
                 is ViewState.Success -> {
-                    avatarListAdapter.avatarList = ArrayList(it.data)
+                    avatarListAdapter.avatarList = ArrayList(viewState.data)
                 }
                 is ViewState.Error -> {
-                    // TODO: Handle error
+                    context?.showToast(getString(R.string.user_avatar_list_error_msg))
                 }
             }
         })

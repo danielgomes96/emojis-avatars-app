@@ -1,3 +1,4 @@
 <resources>
     <string name="user_avatar_deleted_message">The user %s was successfully deleted.</string>
+    <string name="user_avatar_list_error_msg">An error occurred while trying to fetching avatars.</string>
 </resources>
